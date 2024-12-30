@@ -1,8 +1,11 @@
 import 'dotenv/config';
+import routesSessions from "./routes/sessions.js"
 import express from 'express';
 
 
 const app = express();
+
+app.use('/sessions' , routesSessions);
 
 try{
 
