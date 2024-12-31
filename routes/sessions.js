@@ -6,7 +6,6 @@ route.post('/' ,sessionsController.create );
 route.get('/' , sessionsController.getAll);
 route.get('/:id',sessionsController.getOne);
 route.put('/:id' , sessionsController.update);
-route.delete('/' ,sessionsController.delete);
 route.delete('/:id' , sessionsController.delete);
 
 
