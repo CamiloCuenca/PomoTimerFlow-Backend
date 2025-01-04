@@ -14,6 +14,7 @@ class sessionsController {
 
         }catch(e){
 
+            console.log(e)
             res.status(500).send(e)
 
         }
@@ -29,7 +30,9 @@ class sessionsController {
 
         }catch(e){
 
+            console.log(e)
             res.status(500).send(e)
+            
 
         }
     }
@@ -44,6 +47,7 @@ class sessionsController {
 
         }catch(e){
 
+            console.log(e)
             res.status(500).send(e)
 
         }
@@ -59,6 +63,7 @@ class sessionsController {
 
         }catch(e){
 
+            console.log(e)
             res.status(500).send(e)
 
         }
@@ -75,6 +80,7 @@ class sessionsController {
 
         }catch(e){
 
+            console.log(e)
             res.status(500).send(e)
 
         }
