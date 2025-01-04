@@ -1,35 +1,28 @@
-import { ObjectId } from 'mongodb';
-import dbClient from '../config/dbClient.js';
+import Sessions from "../schemas/sessions.js";
 
 
 class sessionModel{
 
-    async create(Sessions){
-        const colSessions = dbClient.db.collection('Sessions');
-        return await colSessions.insertOne(Sessions
-        )
+    async create(sessions){
+        return await Sessions.create(sessions);
     }
 
     async getAll(){
-        const colSessions = dbClient.db.collection('Sessions');
-        return await colSessions.find({}).toArray();
+        return await Sessions.find();
     }
 
     async getOne(id){
-        const colSessions = dbClient.db.collection('Sessions');
-        return await colSessions.findOne({_id : new ObjectId(id)});
+        return await Sessions.findById(id);
 
     }
 
     async update(id,session){
-        const colSessions = dbClient.db.collection('Sessions');
-        return await colSessions.updateOne({_id : new ObjectId(id)},{$set: session});
+       return await Sessions.findOneAndUpdate(id,session,{new: true});
 
     }
 
     async delete(id){
-        const colSessions = dbClient.db.collection('Sessions');
-        return await colSessions.deleteOne({_id : new ObjectId(id)});
+        return await Sessions.findOneAndDelete(id);
     }
 }
 

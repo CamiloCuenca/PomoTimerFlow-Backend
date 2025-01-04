@@ -11,9 +11,9 @@ class dbClient {
 
     // Metodo para crear la conexión
     async connect(){
-        const queryString = `mongodb+srv://${process.env.USER_DB}:${process.env.PASS_DB}@${process.env.SERVER_BD}/?retryWrites=true&w=majority&appName=PomoTimerFlow`;
-        //this.client = new MongoClient(queryString);
+        const queryString = `mongodb+srv://${process.env.USER_DB}:${process.env.PASS_DB}@${process.env.SERVER_BD}/PomoTimerFlow?retryWrites=true&w=majority`;
         await mongoose.connect(queryString);
+        console.log('Conectado a la base de datos')
       
     }
 
@@ -21,7 +21,7 @@ class dbClient {
     async discontent(){
         try{
 
-            await mongoose.disconnect;
+            await mongoose.disconnect();
             console.log("Conexión a  la base de datos cerrada");
 
 

@@ -5,11 +5,11 @@ const sessionSchema = new mongoose.Schema(
         
         type:{
             type: String,
-            require: true
+            required: true
         },
         date:{
             type:Date,
-            require: true
+            required: true
         }
 
     },{timestamps: true}

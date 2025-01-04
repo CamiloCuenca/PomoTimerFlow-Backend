@@ -2,6 +2,7 @@ import 'dotenv/config';
 import routesSessions from "./routes/sessions.js"
 import express from 'express';
 import bodyParser from 'body-parser';
+import dbClient from './config/dbClient.js';
 
 
 const app = express();
@@ -21,3 +22,8 @@ try{
 console.log(e)
 }
 
+
+process.on('SIGINT',async()=>{
+    dbClient.discontent();
+    process.exit(0);
+});
