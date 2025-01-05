@@ -1,4 +1,5 @@
 import Sessions from "../schemas/sessions.js";
+import mongoose from "mongoose";
 
 
 class sessionModel{
@@ -17,12 +18,12 @@ class sessionModel{
     }
 
     async update(id,session){
-       return await Sessions.findOneAndUpdate(id,session,{new: true});
+       return await Sessions.findOneAndUpdate({ _id: new mongoose.Types.ObjectId(id)},session,{new: true});
 
     }
 
     async delete(id){
-        return await Sessions.findOneAndDelete(id);
+        return await Sessions.findOneAndDelete({ _id: new mongoose.Types.ObjectId(id)});
     }
 }
 
