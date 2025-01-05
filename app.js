@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import routesSessions from "./routes/sessions.js"
+import userSessions from "./routes/user.js"
 import express from 'express';
 import bodyParser from 'body-parser';
 import dbClient from './config/dbClient.js';
@@ -11,7 +12,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.use('/pomo' , routesSessions);
+app.use('/sessions' , routesSessions);
+app.use('/users' , userSessions);
+
 
 try{
 
