@@ -1,5 +1,7 @@
 import UserModel from '../models/user.js';
 import bcrypt from 'bcrypt'
+import JWT  from 'jsonwebtoken';
+import { generateToken } from '../helpers/authentication.js';
 
 class UserController {
     constructor(){
@@ -50,7 +52,8 @@ class UserController {
 
         }
 
-        return res.status(400).json({msg:'Ususario autenticado'});
+        const token = generateToken(email);
+        return res.status(200).json({msg:'Ususario autenticado',token});
 
 
 
