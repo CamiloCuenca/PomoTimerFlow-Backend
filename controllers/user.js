@@ -35,6 +35,25 @@ class UserController {
 
     async login(req,res){
 
+        const {email, password} = req.body;
+
+        const userExists = await UserModel.getOne({email});
+        
+        if(!userExists){
+            return res.status(400).json({error:'El usuario NO existe'});
+        }
+
+        const  validPassword = await bcrypt.compare(password,userExists.password);
+
+        if(!validPassword){
+            return res.status(400).json({error:'La contraseña no es valida'});
+
+        }
+
+        return res.status(400).json({msg:'Ususario autenticado'});
+
+
+
     }
     
 
