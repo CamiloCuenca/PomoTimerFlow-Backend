@@ -18,6 +18,7 @@ export default function verifyToken(req, res, next) {
     try {
         const dataToken = JWT.verify(token, process.env.JWT_TOKEN_SECRET);
         console.log(dataToken.email);
+        req.emailConectado=dataToken.email;
         next();
     } catch (e) {
         return res.status(401).json({ error: 'Token no válido' }); // Devuelve inmediatamente

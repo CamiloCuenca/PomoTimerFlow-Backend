@@ -54,11 +54,23 @@ class UserController {
 
         const token = generateToken(email);
         return res.status(200).json({msg:'Ususario autenticado',token});
-
-
-
     }
     
+        async profile(req, res){
+    
+            try{
+                
+                const data = await UserModel.getOne({ email:req.emailConectado});
+        
+                res.status(201).json(data);
+    
+            }catch(e){
+    
+                console.log(e)
+                res.status(500).send(e)
+    
+            }
+        }
 
 
 
